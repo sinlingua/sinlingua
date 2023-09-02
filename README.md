@@ -12,6 +12,7 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Library Functions](#library-functions)
+- [Website](#website)
 - [License](#license)
 - [Authors](#authors)
 
@@ -44,6 +45,11 @@ This library has 5 functions:
 5. [Sinhala Text Summarization](https://sinlingua.github.io/documentation/5.%20Sinhala%20Text%20Summarization)
 
 For detailed documentation on each function, visit the [සිංLingua GitHub repository](https://github.com/sinlingua/documentation).
+
+## Website
+
+[Visit the GitHub Pages Website](https://sinlingua.github.io/documentation/)
+
 
 ## License
 
