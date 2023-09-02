@@ -16,19 +16,8 @@ class PastSecondPersonSingular(GrammarRules):
         actual_word = returned_string_verb[1]
         ratio = returned_string_verb[2]
         if returned_string_verb[0]:
-            if verb_checked == 'ගන්නවා':
-                verb_checked = 'ගනිනවා'
-
-            elif verb_checked == 'පෙන්නනනවා':
-                verb_checked = 'පෙන්වනවා'
-
-            elif verb_checked == 'ගන්නනනවා':
-                verb_checked = 'ගන්වනවා'
-
-            elif verb_checked == 'නිදාගන්නවා':
-                verb_checked = 'නිදාගනිනවා'
             # Extract the verb stem
-            #verb_stem = verb_checked[:-2]
+            # verb_stem = verb_checked[:-2]
             # Remove the last word (verb) from the sentence
             words = sentence.split()
             words.remove(actual_word)
@@ -36,7 +25,7 @@ class PastSecondPersonSingular(GrammarRules):
             if sentence.split()[0] in ["ඇය", "ඈ"] or (len(sentence.split()) > 1 and sentence.split()[1] in ["ඇය", "ඈ"]):
                 if len(words) > 1 and words[1] in ["ඇය", "ඈ"]:
                     words.pop(0)
-                #verb_stem = verb_checked[:-2]
+                # verb_stem = verb_checked[:-2]
                 conjugated_verb = verb_checked + "ය"
                 # Add the first word as "ඇය" to the sentence
                 words[0] = "ඇය"

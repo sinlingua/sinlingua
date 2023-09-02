@@ -14,19 +14,7 @@ class FourthPerson(GrammarRules):
         actual_word = returned_string_verb[1]
         ratio = returned_string_verb[2]
         if returned_string_verb[0]:
-            if verb_checked == 'ගන්නවා':
-                verb_checked = 'ගනිනවා'
-            elif verb_checked == 'පෙන්නනනවා':
-                verb_checked = 'පෙන්වනවා'
-            elif verb_checked == 'ගන්නනනවා':
-                verb_checked = 'ගන්වනවා'
-            elif verb_checked == 'නිදාගන්නවා':
-                verb_checked = 'නිදාගනිනවා'
-            elif verb_checked == 'ඉන්නවා':
-                verb_checked = 'ඉන්නෙනවා'
-            elif verb_checked == 'ආදරෙයි':
-                verb_checked = 'ආදරය කරනවා'
-                # Extract the verb stem
+            # Extract the verb stem
             verb_stem = verb_checked[:-1]
             # Remove the last word (verb) from the sentence
             words = sentence.split()
