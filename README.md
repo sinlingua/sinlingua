@@ -24,7 +24,7 @@ Contributions to improve and expand සිංLingua are welcome! Feel free to su
 To install සිංLingua, use the following command:
 
 ```bash
-pip install sinlingua
+pip install git+https://github.com/sinlingua/sinlingua.git
 ```
 
 ## Usage
