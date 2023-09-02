@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='sinlingua_test',
+    name='sinlingua',
     version='0.0.5',
     packages=['sinlingua', 'sinlingua.src', 'sinlingua.singlish', 'sinlingua.summarizer', 'sinlingua.grammar_rule',
               'sinlingua.preprocessor', 'sinlingua.sinhala_audio'],
