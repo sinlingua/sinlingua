@@ -1,6 +1,6 @@
 from fuzzywuzzy import fuzz
 from sinlingua.grammar_rule.grammar_rules import GrammarRules
-from sinlingua.src.grammar_rule_resources import verbs
+from sinlingua.src.grammar_rule_resources import question_verbs
 
 
 class FourthPerson(GrammarRules):
@@ -8,7 +8,7 @@ class FourthPerson(GrammarRules):
         global conjugated_sentence
         grammar_obj = GrammarRules()
         conjugated_verb = ''
-        returned_string_verb = grammar_obj.find_similar_words(verbs, sentence)
+        returned_string_verb = grammar_obj.find_similar_words(question_verbs, sentence)
         # call the function find verb of sentence
         verb_checked = returned_string_verb[0]
         actual_word = returned_string_verb[1]
