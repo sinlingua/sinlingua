@@ -15,7 +15,7 @@
 - [License](#license)
 - [Authors](#authors)
 - [Visit the GitHub Pages Website](https://sinlingua.github.io/documentation/)
-- [Download the සිංLingua Toolkit](https://drive.google.com/file/d/1xviBwuhK0ydw0OgeYASK_vKm2N1s3eS-/view?usp=sharing)
+- [Download සිංLingua Toolkit](https://drive.google.com/file/d/1xviBwuhK0ydw0OgeYASK_vKm2N1s3eS-/view?usp=sharing)
 
 ## Contributing
 
