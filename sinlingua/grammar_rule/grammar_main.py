@@ -11,6 +11,7 @@ from sinlingua.grammar_rule.rule_based_past_1 import PastFirstPerson
 from sinlingua.grammar_rule.rule_based_past_2 import PastSecondPersonSingular
 from sinlingua.grammar_rule.rule_based_past_3 import PastSecondPersonPlural
 from sinlingua.grammar_rule.mask import PredictNoun
+# Imported all grammar rules together in grammar main
 
 
 class GrammarMain:
@@ -95,8 +96,10 @@ class GrammarMain:
         # validated10 = grammar_rule.output(output10)
         # call function for every grammar rule at once to get correct output
 
-        # if validated1 is None and validated2 is None and validated3 is None and validated4 is None and validated5 is None and validated6 is None and validated7 is None and validated8 is None and validated9 is None:
-        #     pass
+        # Check all outputs are None
+        if validated1 is None and validated2 is None and validated3 is None and validated4 is None and validated5 is None and validated6 is None and validated7 is None and validated8 is None and validated9 is None and validated11 is None and validated12 is None:
+            return sentence
+        # Check First Person Rules and their Similarity Ratios
         if validated1 is not None and validated7 is not None:
             if output1[1] < output7[1]:
                 return output7[0]
@@ -110,6 +113,7 @@ class GrammarMain:
             return output4[0]
         elif validated7 is not None:
             return output7[0]
+        # Check Second Person rules and their Similarity Ratios
         elif validated2 is not None and validated8 is not None:
             if output2[1] < output8[1]:
                 return output8[0]
@@ -121,6 +125,7 @@ class GrammarMain:
             return output8[0]
         elif validated2 is not None:
             return output2[0]
+        # Check Third Person Rules and their Similarity Ratios
         elif validated3 is not None and validated9 is not None:
             if output3[1] < output9[1]:
                 return output9[0]
@@ -132,8 +137,10 @@ class GrammarMain:
             return output9[0]
         elif validated3 is not None:
             return output3[0]
+        # Check Fourth Person Rules and their Similarity Ratios
         elif validated12 is not None:
             return output12[0]
+        # Check Plural & Singular Rules and their Similarity Ratios
         elif validated5 is not None and validated6 is not None and validated11 is not None:
             if output5[1] < output6[1]:
                 if output6[1] < output11[1]:
@@ -150,18 +157,20 @@ class GrammarMain:
                 return output6[0]
             if output5[1] > output6[1]:
                 return output5[0]
+            if output5[1] == output6[1]:
+                return output6[0]
         elif validated5 is not None:
             return output5[0]
         elif validated6 is not None:
             return output6[0]
         elif validated11 is not None:
             return output11[0]
-        # if function returns any correct output is displayed
+        # if function returns any correct output is returned
 
 
 # if __name__ == "__main__":
     # obj = GrammarMain()
-    # sent = "මා සතුන්ට දානයක් දෙන්න හිතන් ඉන්නවා"
+    # sent = "සංගමයේ සාමාජිකයින් සමිතිය අවසන් බැවින් විසිය යනව"
     # out = obj.mapper(sentence=sent)
     # print(out)
 
@@ -183,3 +192,7 @@ class GrammarMain:
 # සංගමයේ සාමාජිකයින් සමිතිය අවසන් බැවින් විසිය යනව
 # ඇය මල් නෙලුවා
 # ඔහු මල් නෙලුව
+# තී මල් කැඩුවද
+# තොපි ආහාර ලෑස්ති කරාද
+# ගුරුවරු පිටතට පැමිණ සිටියා
+# දරුවා වෙහෙස මහන්සියෙන් ඉගෙන ගන්නවා
