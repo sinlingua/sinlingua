@@ -1,24 +1,24 @@
 grammar_rule_llm_config = {
-  "api_key":"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",
-  "org_key":"org-FAg23PQBtCvq57kZHYd0HYlW",
-  "model": "gpt-3.5-turbo",
-  "temperature": 0,
-  "max_tokens": 2000,
-  "Top_P": 1,
-  "Frequency_penalty": 0,
-  "Presence_penalty": 0,
-  "max_characters": 4000,
-  "TC_Only": "NO",
-  "Prompts": [
-    {
-      "role": "user",
-      "content": "I need you to identify the given Sinhala word singular or plural. Make sure to give the output in the following JSON structure.\nJSON structure:\n{\n     \"<word>\": \"<singular/plural>\"\n}\n\nWord: '{{word}}'"
-    },
-    {
-      "role": "user",
-      "content": ""
-    }
-  ]
+    "api_key": "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",
+    "org_key": "org-FAg23PQBtCvq57kZHYd0HYlW",
+    "model": "gpt-3.5-turbo",
+    "temperature": 0,
+    "max_tokens": 2000,
+    "Top_P": 1,
+    "Frequency_penalty": 0,
+    "Presence_penalty": 0,
+    "max_characters": 4000,
+    "TC_Only": "NO",
+    "Prompts": [
+        {
+            "role": "user",
+            "content": "I need you to identify the given Sinhala word singular or plural. Make sure to give the output in the following JSON structure.\nJSON structure:\n{\n     \"<word>\": \"<singular/plural>\"\n}\n\nWord: '{{word}}'"
+        },
+        {
+            "role": "user",
+            "content": ""
+        }
+    ]
 }
 
 nouns_subject_plural = [
@@ -495,4 +495,5 @@ verbs_2f = [
     "බොන්නම්",
     "උයන්නම්",
     "හදන්නම්",
+    "දෙන්නම්",
 ]

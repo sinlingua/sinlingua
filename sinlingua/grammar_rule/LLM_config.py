@@ -82,11 +82,14 @@ class LLMConfig:
         return dictionary
 
     @staticmethod
+    # function for predict words
     def berto_predict(sentence: str) -> Tuple[str, str]:
         API_TOKEN = "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"
         API_URL = "https://api-inference.huggingface.co/models/keshan/SinhalaBERTo"
         headers = {"Authorization": f"Bearer {API_TOKEN}"}
+        # Use the API
 
+        # Getting the similar words
         def query(payload):
             response = requests.post(API_URL, headers=headers, json=payload)
             return response.json()
@@ -95,16 +98,20 @@ class LLMConfig:
             "inputs": sentence,
         })
 
+        # Pass the similar words
         lines = output
         line = lines[0]
         return line["sequence"], line["token_str"]
 
     @staticmethod
+    # function for predict most similar words
     def berto_predict_top(sentence: str) -> list:
         API_TOKEN = "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"
         API_URL = "https://api-inference.huggingface.co/models/keshan/SinhalaBERTo"
         headers = {"Authorization": f"Bearer {API_TOKEN}"}
+        # Use the API
 
+        # Getting the most similar word
         def query(payload):
             response = requests.post(API_URL, headers=headers, json=payload)
             return response.json()
@@ -113,6 +120,7 @@ class LLMConfig:
             "inputs": sentence,
         })
 
+        # Pass the most similar word
         list_out = []
         lines = output
         for line in lines:
