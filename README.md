@@ -2,10 +2,10 @@
 
 **සිංLingua** is a Python library designed for Sinhala language data processing tasks. This library provides various components to assist in Sinhala language processing, including audio to text conversion, grammar conversion, Singlish to Sinhala text conversion, data cleaning and preprocessing, and Sinhala summarization.
 
-[![Next](https://img.shields.io/badge/next-blue.svg)](https://github.com/sinlingua/documentation/tree/main/1.%20Singlish%20to%20Sinhala%20Text%20Conversion/README.md)
-[![GitHub issues](https://img.shields.io/github/issues/sinlingua/documentation)](https://github.com/sinlingua/documentation/issues)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/SupunGurusinghe/SinlinguaDocumentation)](https://github.com/sinlingua/documentation/pulls)
-[![License](https://img.shields.io/github/license/sinlingua/documentation)](https://github.com/sinlingua/documentation/blob/main/LICENSE)
+[![Next](https://img.shields.io/badge/next-blue.svg)](https://sinlingua.github.io/documentation/1.%20Singlish%20to%20Sinhala%20Text%20Conversion)
+[![GitHub issues](https://img.shields.io/github/issues/sinlingua/sinlingua)](https://github.com/sinlingua/sinlingua/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/sinlingua/sinlingua)](https://github.com/sinlingua/sinlingua/pulls)
+[![License](https://img.shields.io/github/license/sinlingua/sinlingua)](https://github.com/sinlingua/sinlingua/blob/main/LICENSE)
 
 ## Table of Contents
 - [Contributing](#contributing)
@@ -15,17 +15,18 @@
 - [License](#license)
 - [Authors](#authors)
 - [Visit the GitHub Pages Website](https://sinlingua.github.io/documentation/)
+- [Download සිංLingua Toolkit](https://drive.google.com/file/d/1xviBwuhK0ydw0OgeYASK_vKm2N1s3eS-/view?usp=sharing)
 
 ## Contributing
 
-Contributions to improve and expand සිංLingua are welcome! Feel free to submit issues or pull requests on the [GitHub repository](https://github.com/sinlingua/documentation).
+Contributions to improve and expand සිංLingua are welcome! Feel free to submit issues or pull requests on the [GitHub Bug Tracker](https://github.com/sinlingua/sinlingua/issues).
 
 ## Installation
 
 To install සිංLingua, use the following command:
 
 ```bash
-pip install git+https://github.com/sinlingua/sinlingua.git
+pip install sinlingua
 ```
 
 ## Usage
@@ -44,11 +45,11 @@ This library has 5 functions:
 4. [Sinhala Text Preprocessing](https://sinlingua.github.io/documentation/4.%20Sinhala%20Text%20Preprocessing)
 5. [Sinhala Text Summarization](https://sinlingua.github.io/documentation/5.%20Sinhala%20Text%20Summarization)
 
-For detailed documentation on each function, visit the [සිංLingua GitHub repository](https://github.com/sinlingua/documentation).
+For detailed documentation on each function, visit the [සිංLingua Documentation](https://sinlingua.github.io/documentation/).
 
 ## License
 
-This library is licensed under the MIT License. See the [LICENSE](https://github.com/sinlingua/documentation/blob/main/LICENSE) file for details.
+This library is licensed under the MIT License. See the [LICENSE](https://github.com/sinlingua/sinlingua/blob/main/LICENSE) file for details.
 ```
 
 You can take this Markdown code and paste it into your README file on GitHub or any other platform that supports Markdown rendering. Make sure to replace the placeholder content with your actual library information and links.
@@ -64,4 +65,4 @@ You can take this Markdown code and paste it into your README file on GitHub or 
 For any inquiries or feedback, you can contact us at sssbprojects@gmail.com.
 
 
-[![Next](https://img.shields.io/badge/next-blue.svg)](https://github.com/sinlingua/documentation/tree/main/1.%20Singlish%20to%20Sinhala%20Text%20Conversion/README.md)
+[![Next](https://img.shields.io/badge/next-blue.svg)](https://sinlingua.github.io/documentation/1.%20Singlish%20to%20Sinhala%20Text%20Conversion)

@@ -31,6 +31,8 @@ target/
 
 data/
 
+build/
+
 # hypothesis caches
 *./hypothesis
 
@@ -68,3 +70,4 @@ env/
 *.vec
 
 README.md
+/sinlingua.egg-info/
