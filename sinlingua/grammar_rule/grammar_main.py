@@ -15,11 +15,24 @@ from sinlingua.grammar_rule.mask import PredictNoun
 
 
 class GrammarMain:
-    def __init__(self):
+    def _init_(self):
         pass
 
     @staticmethod
     def mapper(sentence: str):
+        """
+        :param sentence:
+        :return:
+
+        Examples
+        -------
+        >>> from sinlingua.grammar_rule.grammar_main import GrammarMain
+        >>> obj = GrammarMain()
+        >>> text = "අපි පොසොන් පෝයට දන්සලක් සංවිධානය කරවා"
+        >>> out = obj.mapper(sentence=text)
+        >>> print(out)
+        අපි පොසොන් පෝයට දන්සලක් සංවිධානය කරමු
+        """
         first_person = FirstPerson()
         output1 = first_person.common_function(sentence)
         # print(output1)
@@ -168,7 +181,7 @@ class GrammarMain:
         # if function returns any correct output is returned
 
 
-# if __name__ == "__main__":
+# if _name_ == "__main__":
     # obj = GrammarMain()
     # sent = "සංගමයේ සාමාජිකයින් සමිතිය අවසන් බැවින් විසිය යනව"
     # out = obj.mapper(sentence=sent)
