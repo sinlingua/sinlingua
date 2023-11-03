@@ -1,6 +1,3 @@
-import json
-import os
-import pkg_resources
 from sinlingua.src.singlish_resources import alphabet
 
 
@@ -30,87 +27,100 @@ class RuleBasedTransliterator:
         data = alphabet
         self.vowels = data.get('vowels', {})
         self.consonants = data.get('consonants', {})
+        self.consonants_without_a = data.get('consonants_without_a', {})
+        self.special_consonants = data.get('special_consonants', {})
+        self.dependent_vowels = data.get('dependent_vowels', {})
         self.dependent_vowels = data.get('dependent_vowels', {})
 
-    def __split_into_logical_groups(self, word: str) -> list:
-        logical_groups = []
-        current_group = ''
-        i = 0
-        while i < len(word):
-            try:
-                for length in range(3, 0, -1):
-                    if i + length <= len(word):
-                        group = word[i:i + length]
-                        if group in self.vowels:
-                            logical_groups.append(self.vowels[group])
-                            i += length
-
+    def __split_into_logical_groups(self, word: str) -> str:
+        try:
+            logical_groups = []
+            j = 0
+            while j <= len(word):
                 for length in range(4, 0, -1):
-                    if i + length <= len(word):
-                        group = word[i:i + length]
-                        if group in self.consonants:
-                            logical_groups.append(current_group)
-                            current_group = self.consonants[group]
-                            i += length
-
-                            if i >= len(word):
-                                current_group = current_group + "්"
+                    group = word[j: j + length]
+                    if group in self.vowels:
+                        logical_groups.append(self.vowels[group])
+                        j += length
+                        break
+                    elif group in self.special_consonants:
+                        logical_groups.append(self.special_consonants[group])
+                        j += length
+                        nested_group = word[j: j + 1].lower()
+                        if nested_group == 'u':
+                            logical_groups.append(self.dependent_vowels["Aa"])
+                            j += 1
+                            break
+                        break
+                    elif group in self.consonants:
+                        logical_groups.append(self.consonants[group])
+                        j += length
+                        for nested_length in range(3, 0, -1):
+                            nested_group = word[j: j + nested_length]
+                            if nested_group in self.dependent_vowels:
+                                logical_groups.append(self.dependent_vowels[nested_group])
+                                j += nested_length
                                 break
-                            else:
-                                for next_length in range(3, 0, -1):
-                                    if i + next_length <= len(word):
-                                        group = word[i:i + next_length]
-                                        if group in self.dependent_vowels:
-                                            logical_groups.append(current_group)
-                                            current_group = self.dependent_vowels[group]
-                                            i += next_length
-                                            break
-                                else:
-                                    if i < len(word) and word[i] == "a":
-                                        i += 1
-                                    elif (word[i:i + 1] or word[i:i + 2] or word[i:i + 3] or word[i:i + 4]) in (self.consonants or self.vowels):
-                                        current_group = current_group + "්"
-                                        break
-                                    else:
-                                        # Handle unknown characters
-                                        current_group += word[i]
-                                        i += 1
+                        break
+                    elif group in self.consonants_without_a:
+                        logical_groups.append(self.consonants_without_a[group])
+                        j += length
+                        for nested_length in range(3, 0, -1):
+                            nested_group = word[j: j + nested_length]
+                            if nested_group in self.dependent_vowels:
+                                logical_groups.append(self.dependent_vowels[nested_group])
+                                j += nested_length
+                                break
+                        else:
+                            logical_groups.append("්")
+                        break
+                    else:
+                        if length != 1:
+                            continue
+                        else:
                             break
                 else:
-                    # Handle unknown characters
-                    current_group += word[i]
-                    i += 1
-
-                # Check for vowels
-                for length in range(3, 0, -1):
-                    if i + length < len(word):
-                        group = word[i:i + length]
+                    for length in range(4, 0, -1):
+                        group = word[j: j + length]
+                        group = group[0].lower() + group[1:]
                         if group in self.vowels:
-                            logical_groups.append(current_group)
-                            current_group = self.vowels[word[i:i + 3]]
-                            i += 3
+                            logical_groups.append(self.vowels[group])
+                            j += length
                             break
-
-                # # Check for dependent vowel signs
-                # for length in range(3, 0, -1):
-                #     print("Dependent Vowels")
-                #     if i + length < len(word):
-                #         group = word[i:i + length]
-                #         if group in self.dependent_vowels:
-                #             logical_groups.append(current_group)
-                #             current_group = self.dependent_vowels[word[i:i + 3]]
-                #             i += 3
-                #             break
-
-            except Exception as e:
-                # Handle exceptions
-                print(f"An error occurred: {str(e)}")
-                return []
-
-        if current_group:
-            logical_groups.append(current_group)
-
-        return logical_groups
+                        elif group in self.consonants:
+                            logical_groups.append(self.consonants[group])
+                            j += length
+                            for nested_length in range(3, 0, -1):
+                                nested_group = word[j: j + nested_length]
+                                nested_group = nested_group[0].lower() + nested_group[1:]
+                                if nested_group in self.dependent_vowels:
+                                    logical_groups.append(self.dependent_vowels[nested_group])
+                                    j += nested_length
+                                    break
+                            break
+                        elif group in self.consonants_without_a:
+                            logical_groups.append(self.consonants_without_a[group])
+                            j += length
+                            for nested_length in range(3, 0, -1):
+                                nested_group = word[j: j + nested_length]
+                                nested_group = nested_group[0].lower() + nested_group[1:]
+                                if nested_group in self.dependent_vowels:
+                                    logical_groups.append(self.dependent_vowels[nested_group])
+                                    j += nested_length
+                                    break
+                            else:
+                                logical_groups.append("්")
+                            break
+                        else:
+                            if length != 1:
+                                continue
+                            else:
+                                logical_groups.append(group)
+                                j += 1
+                                break
+            return "".join(logical_groups)
+        except Exception:
+            return word
 
     # @staticmethod
     # def __read_json_config(file_path: str) -> dict:
@@ -168,29 +178,20 @@ class RuleBasedTransliterator:
             transliterated_paragraphs = []
 
             for paragraph in paragraphs:
-                words = paragraph.split()
-                transliterated_words = []
-
-                for word in words:
-                    logical_groups = self.__split_into_logical_groups(word)
-
-                    output = ''
-                    for group in logical_groups:
-                        if group in self.vowels:
-                            output += self.vowels[group]
-                        elif group in self.dependent_vowels:
-                            output += self.dependent_vowels[group]
-                        else:
-                            output += group
-
-                    transliterated_word = output
-                    transliterated_words.append(transliterated_word)
-
-                transliterated_paragraph = ' '.join(transliterated_words)
-                transliterated_paragraphs.append(transliterated_paragraph)
-
-            output_text = '\n'.join(transliterated_paragraphs)
-            return output_text
+                sentences = paragraph.split(".")
+                transliterated_sentences = []
+                for sentence in sentences:
+                    sentence = sentence.strip()
+                    words = sentence.split()
+                    transliterated_words = []
+                    for word in words:
+                        word = word.strip()
+                        transliterated_words.append(self.__split_into_logical_groups(word))
+                        print(transliterated_words)
+                    transliterated_sentences.append(" ".join(transliterated_words))
+                transliterated_paragraphs.append(". ".join(transliterated_sentences))
+            transliterated_result = "\n".join(transliterated_paragraphs) + "."
+            return transliterated_result
 
         except Exception as e:
             print(f"Error in transliterator method: {e}")

@@ -23,14 +23,6 @@ def conversion(path: str):
     -------
     None
 
-    Examples
-    -------
-    >>> from sinlingua.sinhala_audio.audio_to_text import conversion
-    >>> file_path = "../resources/IT20167264/test_audio/pn_sin_01_00001.wav"
-    >>> out = conversion(file_path)
-    >>> print(out)
-    කුඹුර ගොවියාට වී ලබාගැනීමට උපකාරී වීම වශයෙන් පිහිටවන්න කි
-
     Notes:
     ------
     - Make sure you have the required dependencies installed, such as the SpeechRecognition library.
@@ -40,10 +32,10 @@ def conversion(path: str):
     lang = 'si-LK'
 
     with sr.AudioFile(path) as source:
-        # print('Fetching File')
+        print('Fetching File')
         audio_text = r.listen(source)
         try:
-            # print('Converting audio transcripts into text ...')
+            print('Converting audio transcripts into text ...')
             text = r.recognize_google(audio_text, language=lang)
             return text
         except Exception as e:

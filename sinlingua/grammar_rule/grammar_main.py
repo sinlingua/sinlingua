@@ -20,19 +20,6 @@ class GrammarMain:
 
     @staticmethod
     def mapper(sentence: str):
-        """
-        :param sentence:
-        :return:
-
-        Examples
-        -------
-        >>> from sinlingua.grammar_rule.grammar_main import GrammarMain
-        >>> obj = GrammarMain()
-        >>> text = "අපි පොසොන් පෝයට දන්සලක් සංවිධානය කරවා"
-        >>> out = obj.mapper(sentence=text)
-        >>> print(out)
-        අපි පොසොන් පෝයට දන්සලක් සංවිධානය කරමු
-        """
         first_person = FirstPerson()
         output1 = first_person.common_function(sentence)
         # print(output1)
