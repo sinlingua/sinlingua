@@ -4,7 +4,7 @@ from pathlib import Path
 this_directory = Path(__file__).parent
 setup(
     name='sinlingua',
-    version='0.1.5',
+    version='0.1.7',
     packages=['sinlingua', 'sinlingua.src', 'sinlingua.singlish', 'sinlingua.summarizer', 'sinlingua.grammar_rule',
               'sinlingua.preprocessor', 'sinlingua.sinhala_audio'],
     project_urls={
